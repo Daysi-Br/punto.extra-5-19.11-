@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Gustos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="form-header">
+            <button class="nav-btn" onclick="location.href='datos.html'">
+                <i class="fas fa-arrow-left"></i> Datos
+            </button>
+            <div class="header-content">
+                <div class="form-icon">
+                    <i class="fas fa-poll"></i>
+                </div>
+                <div>
+                    <h1>Encuesta de Gustos</h1>
+                    <p>Comparte tus preferencias e intereses personales</p>
+                </div>
+            </div>
+            <button class="nav-btn" onclick="location.href='index.html'">
+                Inicio <i class="fas fa-arrow-right"></i>
+            </button>
+        </header>
+
+        <main class="form-container">
+            <form id="surveyForm" class="animated-form">
+                <div class="form-section">
+                    <h3><i class="fas fa-music"></i> Gustos Musicales</h3>
+                    <div class="form-group">
+                        <label class="required">¿Qué tipo de música prefieres?</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="musica" value="pop">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-compact-disc"></i> Pop
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="musica" value="rock">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-guitar"></i> Rock
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="musica" value="reggaeton">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-drum"></i> Reggaeton
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="musica" value="electronica">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-sliders-h"></i> Electrónica
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="musica" value="clasica">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-music"></i> Clásica
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="musica" value="folklorica">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-drum-steelpan"></i> Folklórica
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artistaFavorito">Artista o Banda Favorita</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user-music"></i>
+                            <input type="text" id="artistaFavorito" name="artistaFavorito" placeholder="Tu artista o banda preferida">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-running"></i> Gustos Deportivos</h3>
+                    <div class="form-group">
+                        <label class="required">¿Qué deportes practicas o sigues?</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="deportes" value="futbol">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-futbol"></i> Fútbol
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="deportes" value="basquet">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-basketball-ball"></i> Básquetbol
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="deportes" value="tenis">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-table-tennis"></i> Tenis
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="deportes" value="natacion">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-swimmer"></i> Natación
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="deportes" value="ciclismo">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-bicycle"></i> Ciclismo
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="deportes" value="ninguno">
+                                <span class="checkbox-custom"></span>
+                                <i class="fas fa-times"></i> No practico deportes
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipoFavorito">Equipo Deportivo Favorito</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-trophy"></i>
+                            <input type="text" id="equipoFavorito" name="equipoFavorito" placeholder="Tu equipo preferido">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Estudios y Formación</h3>
+                    <div class="form-group">
+                        <label for="nivelEstudios" class="required">Nivel de Estudios</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user-graduate"></i>
+                            <select id="nivelEstudios" name="nivelEstudios" required>
+                                <option value="">Selecciona tu nivel de estudios</option>
+                                <option value="primaria">Primaria</option>
+                                <option value="secundaria">Secundaria</option>
+                                <option value="universitario">Universitario</option>
+                                <option value="posgrado">Posgrado</option>
+                                <option value="tecnico">Técnico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="areaEstudio">Área de Estudio o Interés</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-book"></i>
+                            <input type="text" id="areaEstudio" name="areaEstudio" placeholder="Tu área de estudio o interés">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-briefcase"></i> Situación Laboral</h3>
+                    <div class="form-group">
+                        <label for="situacionLaboral" class="required">Situación Laboral Actual</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-briefcase"></i>
+                            <select id="situacionLaboral" name="situacionLaboral" required>
+                                <option value="">Selecciona tu situación</option>
+                                <option value="empleado">Empleado</option>
+                                <option value="desempleado">Desempleado</option>
+                                <option value="estudiante">Estudiante</option>
+                                <option value="independiente">Trabajador Independiente</option>
+                                <option value="jubilado">Jubilado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sectorTrabajo">Sector de Trabajo</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-industry"></i>
+                            <input type="text" id="sectorTrabajo" name="sectorTrabajo" placeholder="Sector en el que trabajas">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-heart"></i> Otros Intereses</h3>
+                    <div class="form-group">
+                        <label for="hobbies">Hobbies o Pasatiempos</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-gamepad"></i>
+                            <textarea id="hobbies" name="hobbies" placeholder="Describe tus hobbies y pasatiempos..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="metas">Metas Personales</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-bullseye"></i>
+                            <textarea id="metas" name="metas" placeholder="¿Cuáles son tus metas personales?" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn-secondary">
+                        <i class="fas fa-eraser"></i> Limpiar Encuesta
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Encuesta
+                    </button>
+                </div>
+            </form>
+
+            <div id="status-message" class="status-message"></div>
+        </main>
+
+        <footer class="form-footer">
+            <div class="footer-nav">
+                <button class="nav-btn small" onclick="location.href='datos.html'">
+                    <i class="fas fa-user"></i> Datos
+                </button>
+                <button class="nav-btn small" onclick="location.href='index.html'">
+                    <i class="fas fa-home"></i> Inicio
+                </button>
+            </div>
+            <p>Encuesta de Gustos &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
