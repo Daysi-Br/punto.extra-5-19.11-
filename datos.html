@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Personales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="form-header">
+            <button class="nav-btn" onclick="location.href='index.html'">
+                <i class="fas fa-arrow-left"></i> Inicio
+            </button>
+            <div class="header-content">
+                <div class="form-icon">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <div>
+                    <h1>Datos Personales</h1>
+                    <p>Completa tu información personal básica</p>
+                </div>
+            </div>
+            <button class="nav-btn" onclick="location.href='encuesta.html'">
+                Encuesta <i class="fas fa-arrow-right"></i>
+            </button>
+        </header>
+
+        <main class="form-container">
+            <form id="personalDataForm" class="animated-form">
+                <div class="form-section">
+                    <h3><i class="fas fa-id-card"></i> Información de Identificación</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="ci" class="required">Cédula de Identidad</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" id="ci" name="ci" placeholder="Ej: 1234567" required 
+                                       pattern="[0-9]{7,8}" title="Ingresa un número de cédula válido (7-8 dígitos)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre" class="required">Nombre</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-signature"></i>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required 
+                                       pattern="[A-Za-záéíóúñÑ\s]{2,}" title="Solo letras y espacios (mínimo 2 caracteres)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apellido" class="required">Apellido</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-signature"></i>
+                                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required
+                                       pattern="[A-Za-záéíóúñÑ\s]{2,}" title="Solo letras y espacios (mínimo 2 caracteres)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fechaNacimiento" class="required">Fecha de Nacimiento</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-venus-mars"></i> Información Demográfica</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sexo" class="required">Sexo</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="sexo" value="masculino" required>
+                                    <span class="radio-custom"></span>
+                                    <i class="fas fa-mars"></i> Masculino
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="sexo" value="femenino" required>
+                                    <span class="radio-custom"></span>
+                                    <i class="fas fa-venus"></i> Femenino
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="sexo" value="otro" required>
+                                    <span class="radio-custom"></span>
+                                    <i class="fas fa-transgender"></i> Otro
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ciudad" class="required">Ciudad</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-city"></i>
+                                <select id="ciudad" name="ciudad" required>
+                                    <option value="">Selecciona tu ciudad</option>
+                                    <option value="asuncion">Asunción</option>
+                                    <option value="cdeste">Ciudad del Este</option>
+                                    <option value="encarnacion">Encarnación</option>
+                                    <option value="sanlorenzo">San Lorenzo</option>
+                                    <option value="luque">Luque</option>
+                                    <option value="capriata">Capiatá</option>
+                                    <option value="lambare">Lambaré</option>
+                                    <option value="fernandodelamora">Fernando de la Mora</option>
+                                    <option value="otra">Otra ciudad</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-address-book"></i> Información de Contacto</h3>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="direccion" class="required">Dirección</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" id="direccion" name="direccion" placeholder="Tu dirección completa" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono" class="required">Teléfono</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Ej: 0981123456" required
+                                       pattern="[0-9]{9,10}" title="Ingresa un número de teléfono válido (9-10 dígitos)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="correo" class="required">Correo Electrónico</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn-secondary">
+                        <i class="fas fa-eraser"></i> Limpiar Formulario
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Datos
+                    </button>
+                </div>
+            </form>
+
+            <div id="status-message" class="status-message"></div>
+        </main>
+
+        <footer class="form-footer">
+            <div class="footer-nav">
+                <button class="nav-btn small" onclick="location.href='index.html'">
+                    <i class="fas fa-home"></i> Inicio
+                </button>
+                <button class="nav-btn small" onclick="location.href='encuesta.html'">
+                    <i class="fas fa-chart-bar"></i> Encuesta
+                </button>
+            </div>
+            <p>Formulario de Datos Personales &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
