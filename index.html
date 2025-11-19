@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto - EmailJS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="header-animation">
+            <i class="fas fa-paper-plane"></i>
+            <h1>📧 Contáctanos</h1>
+            <p>Envíanos un mensaje y te responderemos pronto</p>
+        </div>
+
+        <form id="contactForm">
+            <div class="form-section">
+                <h3><i class="fas fa-user"></i> Información Personal</h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName" class="required">Nombre</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-signature"></i>
+                            <input type="text" id="firstName" name="firstName" placeholder="Tu nombre" required 
+                                   pattern="[A-Za-záéíóúñÑ\s]{2,}" 
+                                   title="Solo letras y espacios (mínimo 2 caracteres)">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="required">Apellido</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-signature"></i>
+                            <input type="text" id="lastName" name="lastName" placeholder="Tu apellido" required
+                                   pattern="[A-Za-záéíóúñÑ\s]{2,}" 
+                                   title="Solo letras y espacios (mínimo 2 caracteres)">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="required">Correo Electrónico</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="0981123456"
+                                   pattern="[0-9]{9,10}" title="Ingresa un número válido (9-10 dígitos)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fas fa-comment-dots"></i> Tu Mensaje</h3>
+                
+                <div class="form-group">
+                    <label for="subject" class="required">Asunto</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-tag"></i>
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecciona un asunto</option>
+                            <option value="consulta">Consulta General</option>
+                            <option value="soporte">Soporte Técnico</option>
+                            <option value="cotizacion">Cotización</option>
+                            <option value="colaboracion">Colaboración</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="required">Mensaje</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-edit"></i>
+                        <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." 
+                                  required minlength="10" 
+                                  title="El mensaje debe tener al menos 10 caracteres"></textarea>
+                    </div>
+                    <div class="char-counter">
+                        <span id="charCount">0</span> / 500 caracteres
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="urgency">Nivel de Urgencia</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="urgency" value="baja" checked>
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-walking"></i> Baja
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="urgency" value="media">
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-running"></i> Media
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="urgency" value="alta">
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-bolt"></i> Alta
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fas fa-heart"></i> Preferencias</h3>
+                
+                <div class="form-group">
+                    <label>¿Cómo prefieres que te contactemos?</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="contactMethod" value="email" checked>
+                            <span class="checkbox-custom"></span>
+                            <i class="fas fa-envelope"></i> Correo Electrónico
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="contactMethod" value="phone">
+                            <span class="checkbox-custom"></span>
+                            <i class="fas fa-phone"></i> Llamada Telefónica
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="contactMethod" value="whatsapp">
+                            <span class="checkbox-custom"></span>
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsletter">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="si">
+                        <span class="checkbox-custom"></span>
+                        <i class="fas fa-newspaper"></i> Suscribirme al newsletter
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="btn-secondary">
+                    <i class="fas fa-eraser"></i> Limpiar Formulario
+                </button>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+            </div>
+        </form>
+
+        <div id="status-message" class="status-message"></div>
+        
+        <div class="form-footer">
+            <p><i class="fas fa-info-circle"></i> Los campos marcados con * son obligatorios</p>
+            <p class="security-note">
+                <i class="fas fa-shield-alt"></i> Tus datos están protegidos y no serán compartidos con terceros
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
